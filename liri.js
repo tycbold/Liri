@@ -7,6 +7,7 @@ var access_token_key = '405863235-iUsIUDIKFDb9Q4i46qMoig0IAOCamOFXC4D4vKN6';
 var inquirer = require('inquirer');
 var fs = require('fs');
 var Spotify = require('node-spotify-api');
+var Twitter = require('twitter');
 
 
 
@@ -73,18 +74,30 @@ spotify.search({ type: 'track', query: title, limit: '5' }, function(err, data) 
 
 
 if (command === "my-tweets") {
-request("https://api.twitter.com/oauth/access_token/" + access_token_key, function(error, response, body) {
 
-  // If the request was successful...
-  if (!error && response.statusCode === 200) {
-
-    // Then log the body from the site!
-    console.log(JSON.parse(body));
+var client = new Twitter({
+  consumer_key: 'VofeShouqqzsEXp9vac1iP8nz',
+  consumer_secret: 'ca8SL22dYX8jrWpYnycU8DQaXJIeTqpTSmutVpyNbMOxi5Iguw',
+  access_token_key: '405863235-iUsIUDIKFDb9Q4i46qMoig0IAOCamOFXC4D4vKN6',
+  access_token_secret: 'LkkI4M58OYB8MWnlRIQYPGxM6wSstwLo9oSQpqzvJ5Anb'
+});
+ 
+var params = {screen_name: 'tycbold19'};
+client.get('statuses/user_timeline', params, function(error, tweets, response) {
+  if (!error) {
+  	for (var i = 0; i < 20; i++) {
+  	
+  	console.log("Tweet #" + (i+1));
+  	console.log(tweets[i].created_at);
+    console.log(tweets[i].text); 
+    console.log("-----------------------------");   
+}
   }
   else {
-  	console.log("failed");
+  	console.log("Process Failed");
   }
 });
+
 }
 
 
