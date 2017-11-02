@@ -1,0 +1,32 @@
+{
+  "name": "liri-app",
+  "version": "1.0.0",
+  "description": "LIRI app for NU bootcamp homework, use for Twitter, Spotify, OMDB.",
+  "main": "keys.js",
+  "scripts": {
+    "test": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tycbold/Liri.git"
+  },
+  "keywords": [
+    "twitter",
+    "liri",
+    "spotify",
+    "omdb",
+    "bootcamp"
+  ],
+  "author": "Tyler Seybold",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tycbold/Liri/issues"
+  },
+  "homepage": "https://github.com/tycbold/Liri#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "inquirer": "^3.3.0",
+    "node-spotify-api": "^1.0.7",
+    "request": "^2.83.0"
+  }
+}
